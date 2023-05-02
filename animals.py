@@ -1,1 +1,36 @@
-animals_list = []
+animals_list = [
+    {
+		"animal": "a pig",
+		"probability": 1,
+		"moo": False,
+		"graze": True,
+		"have any horns": False,
+		"have hooves": True,
+		"lay eggs": False,
+		"have white colouration": False,
+		"eat an omnivorous diet": True,
+		"eat a carnivorous diet": False,
+		"meow": False,
+		"bark": False,
+		"cluck": False,
+		"peck": False,
+		"have feathers": False,
+		"fly well": False,
+		"oink": True,
+		"have a beak": False,
+		"have a long mane": False,
+		"neigh": False,
+		"have wings": False,
+		"have wool": False,
+		"have a beard": False,
+		"have paws": False,
+		"quack": False,
+		"hee-haw": False,
+		"live in a flock": False,
+		"live in a herd": False,
+		"have a wattle": False,
+		"have a comb": False,
+        "say gobble": False,
+        "give birth to litters": True
+    }
+]
