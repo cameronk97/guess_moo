@@ -223,3 +223,5 @@ def game(animals_list, key="probability"):
             player_answer = ask_question(asked_traits, possible_animals)
             if player_answer in [True, False, None]:
                 break
+        # checks
+        if any(animal["probability"] > 12 for animal in possible_animals):
