@@ -15,3 +15,12 @@ WELCOME_LOGO = """
 
            THE FARM ANIMAL GUESSING GAME
 """.center(51)
+
+main_menu = """
+PLEASE SELECT AN OPTION:
+
+     a) GAME INFO
+     b) PLAY GAME
+     c) EXIT
+
+""".center(24)
