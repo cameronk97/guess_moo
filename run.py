@@ -97,4 +97,5 @@ def game(animals, key="probability"):
     """
     Start the game loop
     """
-    
+    # Initialize the list of asked traits
+    asked_traits = []
