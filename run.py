@@ -24,3 +24,6 @@ def start_screen(WELCOME_LOGO):
 
 def display_main_menu(main_menu):
     chosen_option = input(f"{colorama.Fore.GREEN}{main_menu}\n>>> ").lower()
+
+def display_game_info(game_info):
+    print(f"{colorama.Fore.BLUE}{game_info}\n")
