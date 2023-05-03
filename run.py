@@ -71,6 +71,8 @@ def introduction():
         except ValueError as error:
             print(error)
 
+    start_game_input = input(f"{colorama.Fore.WHITE}Welcome {username}! Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
+
 def exit_game():
     """
     Exits the program
