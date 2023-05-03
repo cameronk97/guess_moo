@@ -233,3 +233,11 @@ def game(animals_list, key="probability"):
             make_guess(possible_animals, question_number)
     else:
         make_guess(possible_animals, question_number)
+
+def main():
+    """
+    Displays the start screen
+    and main menu
+    """
+    start_screen(WELCOME_LOGO)
+    display_main_menu(main_menu, game_info)
