@@ -197,3 +197,4 @@ def game(animals_list, key="probability"):
     # Loop through 20 questions
     for i in range(20):
         question_number = i + 1
+        print(f"{colorama.Fore.GREEN}QUESTION {question_number}:")
