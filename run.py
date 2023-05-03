@@ -23,6 +23,13 @@ def start_screen(WELCOME_LOGO):
     input(f"{colorama.Fore.WHITE}PRESS ENTER TO START\n>>> ")
 
 def display_main_menu(main_menu, game_info):
+    """
+    Display main game menu with 3 options for users:
+        a) Game Information
+        b) Play Game
+        c) Exit the program
+    Raise and catch ValueError if the user input is not 'a', 'b' or 'c'
+    """
     while True:
         try:
             chosen_option = input(f"{colorama.Fore.GREEN}{main_menu}\n>>> ").lower()
