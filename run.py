@@ -107,7 +107,8 @@ def rank_animals(possible_animals, key="probability"):
     """
     return sorted(possible_animals, key=lambda x: x["probability"], reverse=True)
 
-def compare_animals():
+def compare_animals(possible_animals):
+    likely_animals = rank_animals(possible_animals, "probability")[:3]
 
 def game(animals_list, key="probability"):
     """
