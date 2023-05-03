@@ -242,4 +242,7 @@ def main():
     start_screen(WELCOME_LOGO)
     display_main_menu(main_menu, game_info)
 
+def game_over(game_over_options):
+    game_over_input = input(f"{colorama.Fore.GREEN}{game_over_options}\n>>> ").lower()
+
 main()
