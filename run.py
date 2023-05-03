@@ -184,11 +184,22 @@ def update_animal_probability(possible_animals, trait, player_answer):
         elif animal[trait] != player_answer:
             animal["probability"] -= 1
 
-def make_guess():
+def make_guess(possible_animals, question_number):
     # Sort the possible animals by probability
     ranked_animals = rank_animals(possible_animals, key="probability")
-    # Make a guess based on the most probable animal
-    final_player_answer = input(f"Is the animal you're thinking of {ranked_animals[0]['animal']}? (yes/no)\n>>> ")
+    while True:
+        try:
+            final_player_answer = input(f"Is the animal you're thinking of {ranked_animals[0]['animal']}? (yes/no)\n>>> ")
+            if final_player_answer.lower() == "yes" or final_player_answer.lower() == "y":
+                print(f"{colorama.Fore.GREEN}I knew it.\nGuessed in {question_number} questions.\nThanks for playing!\n")
+                break
+            elif final_player_answer.lower() == "no" or final_player_answer.lower() == "n":
+                print(f"{colorama.Fore.MAGENTA}Sorry, I couldn't guess the farm animal you were thinking of.\nI guess I still have a lot to learn.\n")
+                break
+            else:
+                raise ValueError(f'{colorama.Fore.MAGENTA}Invalid input: Please answer "Yes" or "No"\n')
+        except ValueError as error:
+            print(error)
 
 def game(animals_list, key="probability"):
     """
