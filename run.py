@@ -59,7 +59,17 @@ def display_game_info(game_info):
 def introduction():
     print(f"{colorama.Fore.CYAN}Hi! I'm a farm animal expert.\n")
     print(f"{colorama.Fore.CYAN}I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
-    username = input(f"{colorama.Fore.GREEN}What's your name?\n>>> ").capitalize().strip()
+    while True:
+        try:
+            username = input(f"{colorama.Fore.GREEN}What's your name?\n>>> ").capitalize().strip()
+            if len(username) == 0:
+                raise ValueError(f"{colorama.Fore.MAGENTA}Invalid name: Please enter at least one character.\n")
+            elif username.isalpha() != True:
+                raise ValueError(f"{colorama.Fore.MAGENTA}Invalid name: Please try again using alphabetic characters.\n")
+            else:
+                break
+        except ValueError as error:
+            print(error)
 
 def exit_game():
     """
