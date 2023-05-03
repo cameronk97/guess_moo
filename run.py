@@ -194,3 +194,5 @@ def game(animals_list, key="probability"):
     possible_animals = animals_list.copy()
     for animal in possible_animals:
         animal["probability"] = 1
+    # Loop through 20 questions
+    for i in range(20):
