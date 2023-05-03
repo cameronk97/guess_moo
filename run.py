@@ -151,9 +151,11 @@ def ask_question(asked_traits, possible_animals):
         # convert player answer to boolean
         if player_answer in VALID_ANSWERS[0:2]:
             player_answer = True
+            update_animal_probability(possible_animals, trait, player_answer)
             return player_answer
         elif player_answer in VALID_ANSWERS[2:4]:
             player_answer = False
+            update_animal_probability(possible_animals, trait, player_answer)
             return player_answer
         elif player_answer in VALID_ANSWERS[-3:]:
             player_answer = None
