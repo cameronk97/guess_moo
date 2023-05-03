@@ -23,6 +23,7 @@ def start_screen(WELCOME_LOGO):
     input(f"{colorama.Fore.WHITE}PRESS ENTER TO START\n>>> ")
 
 def display_main_menu(main_menu, game_info):
+    #not sure if i need game-info as a parameter here
     """
     Display main game menu with 3 options for users:
         a) Game Information
@@ -58,6 +59,7 @@ def display_game_info(game_info):
 def introduction():
     print(f"{colorama.Fore.CYAN}Hi! I'm a farm animal expert.\n")
     print(f"{colorama.Fore.CYAN}I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
+    username = input(f"{colorama.Fore.GREEN}What's your name?\n>>> ").capitalize().strip()
 
 def exit_game():
     """
