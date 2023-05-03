@@ -244,13 +244,18 @@ def main():
 
 def game_over(game_over_options):
     while True:
-        game_over_input = input(f"{colorama.Fore.GREEN}{game_over_options}\n>>> ").lower()
-        if game_over_input == "a":
-            input(f"{colorama.Fore.CYAN}Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
-            game(animals_list)
-        elif game_over_input == "b":
-            display_main_menu(main_menu, game_info)
-        elif game_over_input == "c":
-            exit_game()
+        try:
+            game_over_input = input(f"{colorama.Fore.GREEN}{game_over_options}\n>>> ").lower()
+            if game_over_input == "a":
+                input(f"{colorama.Fore.CYAN}Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
+                game(animals_list)
+            elif game_over_input == "b":
+                display_main_menu(main_menu, game_info)
+            elif game_over_input == "c":
+                exit_game()
+            else:
+                raise ValueError(f"{colorama.Fore.MAGENTA}Invalid input: Please enter 'a', 'b' or 'c'\n")
+        except ValueError as error:
+            print(error)
 
 main()
