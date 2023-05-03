@@ -57,6 +57,10 @@ def display_game_info(game_info):
     back_to_main = input(f"{colorama.Fore.MAGENTA}Press enter to go back\n>>> ")
 
 def introduction():
+    """
+    Introduce the game and prompt users to input their name
+    Raise and catch ValueError if no characters or non-alphabetic characters are input for username
+    """
     print(f"{colorama.Fore.CYAN}Hi! I'm a farm animal expert.\n")
     print(f"{colorama.Fore.CYAN}I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
     while True:
