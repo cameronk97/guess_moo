@@ -188,7 +188,7 @@ def make_guess():
     # Sort the possible animals by probability
     ranked_animals = rank_animals(possible_animals, key="probability")
     # Make a guess based on the most probable animal
-    input(f"Is the animal you're thinking of {ranked_animals[0]['animal']}? (yes/no)\n>>> ")
+    final_player_answer = input(f"Is the animal you're thinking of {ranked_animals[0]['animal']}? (yes/no)\n>>> ")
 
 def game(animals_list, key="probability"):
     """
