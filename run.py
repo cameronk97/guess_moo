@@ -184,6 +184,8 @@ def update_animal_probability(possible_animals, trait, player_answer):
         elif animal[trait] != player_answer:
             animal["probability"] -= 1
 
+def make_guess():
+
 def game(animals_list, key="probability"):
     """
     Start the game loop
