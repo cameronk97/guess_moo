@@ -243,6 +243,12 @@ def main():
     display_main_menu(main_menu, game_info)
 
 def game_over(game_over_options):
+    """
+    When a game ends, give the player 3 choices:
+    * start a new game
+    * return to main menu
+    * exit the program
+    """
     while True:
         try:
             game_over_input = input(f"{colorama.Fore.GREEN}{game_over_options}\n>>> ").lower()
