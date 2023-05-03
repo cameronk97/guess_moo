@@ -143,6 +143,8 @@ def generate_question(possible_animals, asked_traits):
     if not trait:
         return random_trait(possible_animals, asked_traits)
 
+def ask_question(asked_traits, possible_animals):
+
 def game(animals_list, key="probability"):
     """
     Start the game loop
