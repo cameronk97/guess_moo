@@ -147,6 +147,9 @@ def ask_question(asked_traits, possible_animals):
     trait = generate_question(possible_animals, asked_traits)
     player_answer = input(f"{colorama.Fore.BLUE}Does the animal you're thinking of {trait}? (Yes/No/I don't know)\n>>> ").lower()
     asked_traits.append(trait)
+    if player_answer in VALID_ANSWERS:
+        else:
+            print(f'{colorama.Fore.MAGENTA}Invalid input: Please answer "Yes", "No" or "I don\'t know"\n')
 
 def game(animals_list, key="probability"):
     """
