@@ -100,4 +100,4 @@ def game(animals, key="probability"):
     # Initialize the list of asked traits
     asked_traits = []
     # Creates a copy of the animals list that can be manipulated for the duration of the game
-    possible_animals = animals.copy()
+    possible_animals = animals_list.copy()
