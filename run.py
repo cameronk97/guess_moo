@@ -263,5 +263,6 @@ def game_over(game_over_options):
                 raise ValueError(f"{colorama.Fore.MAGENTA}Invalid input: Please enter 'a', 'b' or 'c'\n")
         except ValueError as error:
             print(error)
+    game_over(game_over_options)
 
 main()
