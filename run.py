@@ -162,6 +162,12 @@ def ask_question(asked_traits, possible_animals):
         print(f'{colorama.Fore.MAGENTA}Invalid input: Please answer "Yes", "No" or "I don\'t know"\n')
 
 def update_animal_probability(possible_animals, trait, player_answer):
+    """
+    Loop through every animal in the list of possible_animals
+    and update each animal probability based on the player_answer
+    Increment each matching value by 1
+    and decrement each value that doesn't match by 1
+    """
     for animal in possible_animals:
         if animal[trait] == player_answer:
             animal["probability"] += 1
