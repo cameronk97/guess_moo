@@ -49,6 +49,7 @@ def display_main_menu(main_menu, game_info):
 
 def display_game_info(game_info):
     print(f"{colorama.Fore.BLUE}{game_info}\n")
+    back_to_main = input(f"{colorama.Fore.MAGENTA}Press enter to go back\n>>> ")
 
 def introduction():
     print(f"{colorama.Fore.CYAN}Hi! I'm a farm animal expert.\n")
