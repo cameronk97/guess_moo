@@ -185,6 +185,8 @@ def update_animal_probability(possible_animals, trait, player_answer):
             animal["probability"] -= 1
 
 def make_guess():
+    # Sort the possible animals by probability
+    ranked_animals = rank_animals(possible_animals, key="probability")
 
 def game(animals_list, key="probability"):
     """
