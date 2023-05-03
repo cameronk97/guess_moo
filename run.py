@@ -93,6 +93,10 @@ def exit_game():
     print(f"{colorama.Fore.CYAN}Hope to see you again soon!\n")
     sys.exit()
 
+def random_trait(possible_animals, asked_traits):
+    return random.choice([key for key in possible_animals[0].keys() if key != "animal" 
+	                    and key != "probability" and key not in asked_traits])
+
 def game(animals_list, key="probability"):
     """
     Start the game loop
