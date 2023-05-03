@@ -227,3 +227,5 @@ def game(animals_list, key="probability"):
         if any(animal["probability"] > 12 for animal in possible_animals):
             make_guess(possible_animals, question_number)
             break
+        if any(animal["probability"] < -10 for animal in possible_animals):
+            possible_animals = [animal for animal in possible_animals if animal["probability"] >= -10]
