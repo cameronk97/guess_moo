@@ -241,3 +241,5 @@ def main():
     """
     start_screen(WELCOME_LOGO)
     display_main_menu(main_menu, game_info)
+
+main()
