@@ -31,3 +31,11 @@ def display_game_info(game_info):
 def introduction():
     print(f"{colorama.Fore.CYAN}Hi! I'm a farm animal expert.\n")
     print(f"{colorama.Fore.CYAN}I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
+
+def exit_game():
+    """
+    Exits the program
+    """
+    print(f"{colorama.Fore.MAGENTA}Now exiting the game...\n")
+    print(f"{colorama.Fore.CYAN}Hope to see you again soon!\n")
+    sys.exit()
