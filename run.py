@@ -122,6 +122,10 @@ def compare_animals(possible_animals, asked_traits, animal1, animal2):
                 trait = key
                 return trait
 
+# Choose the trait for the next question
+def generate_question():
+    trait = None
+
 def game(animals_list, key="probability"):
     """
     Start the game loop
