@@ -101,3 +101,5 @@ def game(animals_list, key="probability"):
     asked_traits = []
     # Creates a copy of the animals list that can be manipulated for the duration of the game
     possible_animals = animals_list.copy()
+    for animal in possible_animals:
+        animal["probability"] = 1
