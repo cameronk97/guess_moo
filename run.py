@@ -185,6 +185,10 @@ def update_animal_probability(possible_animals, trait, player_answer):
             animal["probability"] -= 1
 
 def make_guess(possible_animals, question_number):
+    """
+    Make a guess based on the most probable animal and ask the user if the guess is correct
+    Print whether the animal was guessed correctly or not and how many questions were asked
+    """
     # Sort the possible animals by probability
     ranked_animals = rank_animals(possible_animals, key="probability")
     while True:
