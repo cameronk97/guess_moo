@@ -108,6 +108,13 @@ def rank_animals(possible_animals, key="probability"):
     return sorted(possible_animals, key=lambda x: x["probability"], reverse=True)
 
 def compare_animals(possible_animals, asked_traits, animal1, animal2):
+    """
+    Declare a variable named likely_animals containing the top 3 most probable animals
+    Loop through likely_animals keys for the first animal in likely_animals
+    compare values for keys that aren't "animal" or "probability" and aren't in the list of asked_traits
+    until differing boolean values are found for a trait
+    Then assign the key found to a variable named trait and return
+    """
     likely_animals = rank_animals(possible_animals, "probability")[:3]
     for key in likely_animals[0].keys():
         if key != "animal" and key != "probability" and key not in asked_traits:
