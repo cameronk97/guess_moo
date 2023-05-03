@@ -124,6 +124,11 @@ def compare_animals(possible_animals, asked_traits, animal1, animal2):
 
 # Choose the trait for the next question
 def generate_question(possible_animals, asked_traits):
+    """
+    Return a random trait that hasn't already been asked for the first question.
+    For subsequent questions return a trait based on a difference found in the most probable animals.
+    Otherwise return another random trait to be used in the question.
+    """
     trait = None
     # If this is the first question
     if len(asked_traits) == 0:
