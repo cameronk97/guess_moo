@@ -94,6 +94,10 @@ def exit_game():
     sys.exit()
 
 def random_trait(possible_animals, asked_traits):
+    """
+    Return a random trait from the dictionary keys for the first animal in the list of possible_animals
+    that isn't "animal" or "probability" and hasn't already been asked
+    """
     return random.choice([key for key in possible_animals[0].keys() if key != "animal" 
 	                    and key != "probability" and key not in asked_traits])
 
