@@ -130,6 +130,11 @@ def generate_question(possible_animals, asked_traits):
         # choose a random trait that isn't in asked_traits
         trait = random_trait(possible_animals, asked_traits)
         return trait
+    elif len(asked_traits) > 0:
+        for animal1, animal2 in [(0, 1), (0, 2), (1, 2)]:
+            trait = compare_animals(possible_animals, asked_traits, animal1, animal2)
+            if trait:
+                return trait
 
 def game(animals_list, key="probability"):
     """
