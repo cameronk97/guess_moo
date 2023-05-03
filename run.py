@@ -144,6 +144,7 @@ def generate_question(possible_animals, asked_traits):
         return random_trait(possible_animals, asked_traits)
 
 def ask_question(asked_traits, possible_animals):
+    trait = generate_question(possible_animals, asked_traits)
 
 def game(animals_list, key="probability"):
     """
