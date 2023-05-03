@@ -92,3 +92,9 @@ def exit_game():
     print(f"{colorama.Fore.MAGENTA}Now exiting the game...\n")
     print(f"{colorama.Fore.CYAN}Hope to see you again soon!\n")
     sys.exit()
+
+def game(animals, key="probability"):
+    """
+    Start the game loop
+    """
+    
