@@ -48,6 +48,10 @@ def display_main_menu(main_menu, game_info):
             print(error)
 
 def display_game_info(game_info):
+    """
+    Print game information
+    Direct users back to the main menu
+    """
     print(f"{colorama.Fore.BLUE}{game_info}\n")
     back_to_main = input(f"{colorama.Fore.MAGENTA}Press enter to go back\n>>> ")
 
