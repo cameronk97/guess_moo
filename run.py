@@ -135,6 +135,8 @@ def generate_question(possible_animals, asked_traits):
             trait = compare_animals(possible_animals, asked_traits, animal1, animal2)
             if trait:
                 return trait
+    if not trait:
+        return random_trait(possible_animals, asked_traits)
 
 def game(animals_list, key="probability"):
     """
