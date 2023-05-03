@@ -123,8 +123,13 @@ def compare_animals(possible_animals, asked_traits, animal1, animal2):
                 return trait
 
 # Choose the trait for the next question
-def generate_question():
+def generate_question(possible_animals, asked_traits):
     trait = None
+    # If this is the first question
+    if len(asked_traits) == 0:
+        # choose a random trait that isn't in asked_traits
+        trait = random_trait(possible_animals, asked_traits)
+        return trait
 
 def game(animals_list, key="probability"):
     """
