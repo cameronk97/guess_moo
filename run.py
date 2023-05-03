@@ -110,7 +110,7 @@ def rank_animals(possible_animals, key="probability"):
 def compare_animals(possible_animals, asked_traits, animal1, animal2):
     likely_animals = rank_animals(possible_animals, "probability")[:3]
     for key in likely_animals[0].keys():
-        if key != "animal" and key != "probability":
+        if key != "animal" and key != "probability" and key not in asked_traits:
 
 def game(animals_list, key="probability"):
     """
