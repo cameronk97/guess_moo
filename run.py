@@ -101,6 +101,12 @@ def random_trait(possible_animals, asked_traits):
     return random.choice([key for key in possible_animals[0].keys() if key != "animal" 
 	                    and key != "probability" and key not in asked_traits])
 
+def rank_animals(possible_animals, key="probability"):
+    """
+    Return the list of possible_animals sorted by probability from highest to lowest
+    """
+    return sorted(possible_animals, key=lambda x: x["probability"], reverse=True)
+
 def game(animals_list, key="probability"):
     """
     Start the game loop
