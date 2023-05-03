@@ -161,6 +161,9 @@ def ask_question(asked_traits, possible_animals):
     else:
         print(f'{colorama.Fore.MAGENTA}Invalid input: Please answer "Yes", "No" or "I don\'t know"\n')
 
+def update_animal_probability(possible_animals, trait, player_answer):
+    for animal in possible_animals:
+
 def game(animals_list, key="probability"):
     """
     Start the game loop
