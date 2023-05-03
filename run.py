@@ -231,3 +231,5 @@ def game(animals_list, key="probability"):
             possible_animals = [animal for animal in possible_animals if animal["probability"] >= -10]
         if len(possible_animals) == 1:
             make_guess(possible_animals, question_number)
+    else:
+        make_guess(possible_animals, question_number)
