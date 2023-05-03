@@ -46,3 +46,12 @@ game_info = """
    ||                                                                ||   
     ==================================================================    
 """
+
+game_over_options = """
+PLEASE SELECT AN OPTION:
+
+     a) PLAY AGAIN
+     b) MAIN MENU
+     c) EXIT
+
+""".center(24)
