@@ -27,3 +27,7 @@ def display_main_menu(main_menu):
 
 def display_game_info(game_info):
     print(f"{colorama.Fore.BLUE}{game_info}\n")
+
+def introduction():
+    print(f"{colorama.Fore.CYAN}Hi! I'm a farm animal expert.\n")
+    print(f"{colorama.Fore.CYAN}I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
