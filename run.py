@@ -163,6 +163,10 @@ def ask_question(asked_traits, possible_animals):
 
 def update_animal_probability(possible_animals, trait, player_answer):
     for animal in possible_animals:
+        if animal[trait] == player_answer:
+            animal["probability"] += 1
+        elif animal[trait] != player_answer:
+            animal["probability"] -= 1
 
 def game(animals_list, key="probability"):
     """
