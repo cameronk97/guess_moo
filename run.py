@@ -144,6 +144,12 @@ def generate_question(possible_animals, asked_traits):
         return random_trait(possible_animals, asked_traits)
 
 def ask_question(asked_traits, possible_animals):
+    """
+    Ask a question using generated trait
+    Add asked traits to the list of asked_traits
+    Validate player answers
+    Convert player answers to boolean values
+    """
     trait = generate_question(possible_animals, asked_traits)
     player_answer = input(f"{colorama.Fore.BLUE}Does the animal you're thinking of {trait}? (Yes/No/I don't know)\n>>> ").lower()
     asked_traits.append(trait)
