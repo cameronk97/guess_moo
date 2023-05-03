@@ -24,3 +24,25 @@ PLEASE SELECT AN OPTION:
      c) EXIT
 
 """.center(24)
+
+game_info = """
+    ==================================================================    
+   ||                                                                ||   
+   ||                                                                ||   
+   ||                       G A M E   I N F O                        ||   
+   ||                     ---------------------                      ||   
+   ||                                                                ||   
+   ||                                                                ||   
+   ||             * The player thinks of a farm animal               ||   
+   ||                                                                ||   
+   ||                                                                ||   
+   ||        * The computer asks up to 20 yes or no questions        ||   
+   ||                                                                ||   
+   ||                                                                ||   
+   ||            * The computer attempts to guess which              ||   
+   ||              farm animal the player is thinking of             ||   
+   ||                                                                ||   
+   ||                                                                ||   
+   ||                                                                ||   
+    ==================================================================    
+"""
