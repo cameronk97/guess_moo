@@ -21,3 +21,6 @@ def start_screen(WELCOME_LOGO):
     print(f"{colorama.Fore.GREEN}{WELCOME_LOGO}\n")
     typewriter(f"{colorama.Fore.CYAN}LET'S SEE IF I CAN GUESS THE FARM ANIMAL YOU'RE THINKING OF\n")
     input(f"{colorama.Fore.WHITE}PRESS ENTER TO START\n>>> ")
+
+def display_main_menu(main_menu):
+    chosen_option = input(f"{colorama.Fore.GREEN}{main_menu}\n>>> ").lower()
