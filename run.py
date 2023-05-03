@@ -39,7 +39,7 @@ def display_main_menu(main_menu, game_info):
                 continue
             elif chosen_option == "b":
                 introduction()
-                game(animals)
+                game(animals_list)
                 break
             elif chosen_option == "c":
                 exit_game()
@@ -93,7 +93,7 @@ def exit_game():
     print(f"{colorama.Fore.CYAN}Hope to see you again soon!\n")
     sys.exit()
 
-def game(animals, key="probability"):
+def game(animals_list, key="probability"):
     """
     Start the game loop
     """
