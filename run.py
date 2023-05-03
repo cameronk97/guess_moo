@@ -22,8 +22,23 @@ def start_screen(WELCOME_LOGO):
     typewriter(f"{colorama.Fore.CYAN}LET'S SEE IF I CAN GUESS THE FARM ANIMAL YOU'RE THINKING OF\n")
     input(f"{colorama.Fore.WHITE}PRESS ENTER TO START\n>>> ")
 
-def display_main_menu(main_menu):
-    chosen_option = input(f"{colorama.Fore.GREEN}{main_menu}\n>>> ").lower()
+def display_main_menu(main_menu, game_info):
+    while True:
+        try:
+            chosen_option = input(f"{colorama.Fore.GREEN}{main_menu}\n>>> ").lower()
+            if chosen_option == "a":
+                display_game_info(game_info)
+                continue
+            elif chosen_option == "b":
+                introduction()
+                game(animals)
+                break
+            elif chosen_option == "c":
+                exit_game()
+            else:
+                raise ValueError(f"{colorama.Fore.MAGENTA}Invalid input: Please enter 'a', 'b' or 'c'\n")
+        except ValueError as error:
+            print(error)
 
 def display_game_info(game_info):
     print(f"{colorama.Fore.BLUE}{game_info}\n")
