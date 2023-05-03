@@ -196,3 +196,4 @@ def game(animals_list, key="probability"):
         animal["probability"] = 1
     # Loop through 20 questions
     for i in range(20):
+        question_number = i + 1
