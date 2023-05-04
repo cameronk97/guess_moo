@@ -198,17 +198,18 @@ def make_guess(possible_animals, question_number):
     ranked_animals = rank_animals(possible_animals, key="probability")
     while True:
         try:
-            final_player_answer = input(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}Is the animal you're thinking of {ranked_animals[0]['animal']}? (yes/no)\n>>> ")
+            final_player_answer = input(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}\nIs the animal you're thinking of {ranked_animals[0]['animal']}? (yes/no)\n>>> ")
             if final_player_answer.lower() == "yes" or final_player_answer.lower() == "y":
-                print(f"{colorama.Fore.GREEN}I knew it.\nGuessed in {question_number} questions.\nThanks for playing!\n")
+                print(f"{colorama.Fore.CYAN}\nI knew it.\nGuessed in {question_number} questions.\nThanks for playing!\n")
                 break
             elif final_player_answer.lower() == "no" or final_player_answer.lower() == "n":
-                print(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Sorry, I couldn't guess the farm animal you were thinking of.\nI guess I still have a lot to learn.\n")
+                print(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}\nSorry, I couldn't guess the farm animal you were thinking of.\nI guess I still have a lot to learn.\n")
                 break
             else:
                 raise ValueError(f'{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid input: Please answer "Yes" or "No"\n')
         except ValueError as error:
             print(error)
+    clear()
     game_over(game_over_options)
 
 def game(animals_list, key="probability"):
