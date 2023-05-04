@@ -11,7 +11,7 @@ from animals import animals_list
 
 colorama.init(autoreset=True)
 
-len(VALID_ANSWERS = ["yes", "y", "no", "n", "i don't know", "idk", "i dont know"])
+VALID_ANSWERS = ["yes", "y", "no", "n", "i don't know", "idk", "i dont know"]
 
 def start_screen(WELCOME_LOGO):
     """
@@ -25,7 +25,7 @@ def start_screen(WELCOME_LOGO):
     input(f"{colorama.Fore.CYAN}PRESS ENTER TO START\n>>> ")
     clear()
 
-def display_main_menu(main_menu, game_info):
+def display_main_menu(VALID_ANSWERS, main_menu, game_info):
     #not sure if i need game-info as a parameter here
     """
     Display main game menu with 3 options for users:
@@ -42,7 +42,7 @@ def display_main_menu(main_menu, game_info):
                 continue
             elif chosen_option == "b":
                 introduction()
-                game(animals_list)
+                game(VALID_ANSWERS, animals_list)
                 break
             elif chosen_option == "c":
                 exit_game()
@@ -148,7 +148,7 @@ def generate_question(possible_animals, asked_traits):
     if not trait:
         return random_trait(possible_animals, asked_traits)
 
-def ask_question(asked_traits, possible_animals):
+def ask_question(VALID_ANSWERS, asked_traits, possible_animals):
     """
     Ask a question using generated trait
     Add asked traits to the list of asked_traits
@@ -191,7 +191,7 @@ def update_animal_probability(possible_animals, trait, player_answer):
         elif animal[trait] != player_answer:
             animal["probability"] -= 1
 
-def make_guess(possible_animals, question_number):
+def make_guess(possible_animals, question_number, VALID_ANSWERS):
     """
     Make a guess based on the most probable animal and ask the user if the guess is correct
     Print whether the animal was guessed correctly or not and how many questions were asked
@@ -211,9 +211,9 @@ def make_guess(possible_animals, question_number):
                 raise ValueError(f'{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid input: Please answer "Yes" or "No"\n')
         except ValueError as error:
             print(error)
-    game_over(game_over_options)
+    game_over(game_over_options, VALID_ANSWERS)
 
-def game(animals_list, key="probability"):
+def game(VALID_ANSWERS, animals_list, key="probability"):
     """
     Start the game loop
     """
@@ -229,29 +229,29 @@ def game(animals_list, key="probability"):
         question_number = i + 1
         print(f"\n{colorama.Fore.GREEN}{colorama.Style.BRIGHT}QUESTION {question_number}:")
         while True:
-            player_answer = ask_question(asked_traits, possible_animals)
+            player_answer = ask_question(VALID_ANSWERS, asked_traits, possible_animals)
             if player_answer in [True, False, None]:
                 break
         # checks
         if any(animal["probability"] > 12 for animal in possible_animals):
-            make_guess(possible_animals, question_number)
+            make_guess(possible_animals, question_number, VALID_ANSWERS)
             break
         if any(animal["probability"] < -10 for animal in possible_animals):
             possible_animals = [animal for animal in possible_animals if animal["probability"] >= -10]
         if len(possible_animals) == 1:
-            make_guess(possible_animals, question_number)
+            make_guess(possible_animals, question_number, VALID_ANSWERS)
     else:
-        make_guess(possible_animals, question_number)
+        make_guess(possible_animals, question_number, VALID_ANSWERS)
 
-def main():
+def main(VALID_ANSWERS):
     """
     Displays the start screen
     and main menu
     """
     start_screen(WELCOME_LOGO)
-    display_main_menu(main_menu, game_info)
+    display_main_menu(VALID_ANSWERS, main_menu, game_info)
 
-def game_over(game_over_options):
+def game_over(game_over_options, VALID_ANSWERS):
     """
     When a game ends, give the player 3 choices:
     * start a new game
@@ -264,7 +264,7 @@ def game_over(game_over_options):
             if game_over_input == "a":
                 clear()
                 input(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
-                game(animals_list)
+                game(VALID_ANSWERS, animals_list)
             elif game_over_input == "b":
                 display_game_info(game_info)
             elif game_over_input == "c":
@@ -274,4 +274,4 @@ def game_over(game_over_options):
         except ValueError as error:
             print(error)
 
-main()
+main(VALID_ANSWERS)
