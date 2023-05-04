@@ -62,7 +62,7 @@ def introduction():
     Raise and catch ValueError if no characters or non-alphabetic characters are input for username
     """
     typewriter(f"\nHi! I'm a farm animal expert.\n")
-    typewriter(f"I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
+    typewriter(f"I will try to guess the farm animal you're thinking of in 20 questions or less.\n\n")
     while True:
         try:
             username = input(f"{colorama.Fore.GREEN}{colorama.Style.NORMAL}What's your name?\n>>> ").capitalize().strip()
@@ -77,7 +77,7 @@ def introduction():
 
     while True:
         try:
-            start_game_input = input(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}Welcome {username}! Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
+            start_game_input = input(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}\nWelcome {username}! Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
             if len(start_game_input) == 0:
                 break
             else:
