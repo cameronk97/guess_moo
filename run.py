@@ -11,7 +11,7 @@ from animals import animals_list
 
 colorama.init(autoreset=True)
 
-VALID_ANSWERS = ["yes", "y", "no", "n", "i don't know", "idk", "i dont know"]
+len(VALID_ANSWERS = ["yes", "y", "no", "n", "i don't know", "idk", "i dont know"])
 
 def start_screen(WELCOME_LOGO):
     """
@@ -255,7 +255,7 @@ def game_over(game_over_options):
     """
     When a game ends, give the player 3 choices:
     * start a new game
-    * return to main menu
+    * display game information
     * exit the program
     """
     while True:
