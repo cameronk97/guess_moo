@@ -19,7 +19,7 @@ def start_screen(WELCOME_LOGO):
     prompt player to press enter to start
     """
     print(f"{colorama.Fore.GREEN}{WELCOME_LOGO}\n")
-    typewriter(f"{colorama.Fore.WHITE}LET'S SEE IF I CAN GUESS THE FARM ANIMAL YOU'RE THINKING OF\n")
+    typewriter(f"LET'S SEE IF I CAN GUESS THE FARM ANIMAL YOU'RE THINKING OF\n")
     input(f"{colorama.Fore.CYAN}PRESS ENTER TO START\n>>> ")
 
 def display_main_menu(main_menu, game_info):
