@@ -1,1 +1,5 @@
-# Your requirements go here
+colorama==0.4.6
+httplib2==0.20.2
+importlib-metadata==4.6.4
+oauthlib==3.2.0
+SecretStorage==3.3.1
