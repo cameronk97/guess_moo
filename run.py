@@ -18,7 +18,7 @@ def start_screen(WELCOME_LOGO):
     and welcome message with typewriter effect
     prompt player to press enter to start
     """
-    print(f"{colorama.Fore.GREEN}{WELCOME_LOGO}\n")
+    print(f"{colorama.Fore.GREEN}{colorama.Style.NORMAL}{WELCOME_LOGO}\n")
     typewriter(f"LET'S SEE IF I CAN GUESS THE FARM ANIMAL YOU'RE THINKING OF\n")
     input(f"{colorama.Fore.CYAN}PRESS ENTER TO START\n>>> ")
 
@@ -33,7 +33,7 @@ def display_main_menu(main_menu, game_info):
     """
     while True:
         try:
-            chosen_option = input(f"{colorama.Fore.GREEN}{main_menu}\n>>> ").lower()
+            chosen_option = input(f"{colorama.Fore.GREEN}{colorama.Style.NORMAL}{main_menu}\n>>> ").lower()
             if chosen_option == "a":
                 display_game_info(game_info)
                 continue
@@ -65,7 +65,7 @@ def introduction():
     typewriter(f"I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
     while True:
         try:
-            username = input(f"{colorama.Fore.GREEN}What's your name?\n>>> ").capitalize().strip()
+            username = input(f"{colorama.Fore.GREEN}{colorama.Style.NORMAL}What's your name?\n>>> ").capitalize().strip()
             if len(username) == 0:
                 raise ValueError(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid name: Please enter at least one character.\n")
             elif username.isalpha() != True:
@@ -90,7 +90,7 @@ def exit_game():
     Exits the program
     """
     print(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Now exiting the game...\n")
-    print(f"{colorama.Fore.CYAN}Hope to see you again soon!\n")
+    print(f"{colorama.Fore.CYAN}{colorama.Style.NORMAL}Hope to see you again soon!\n")
     sys.exit()
 
 def random_trait(possible_animals, asked_traits):
@@ -152,7 +152,7 @@ def ask_question(asked_traits, possible_animals):
     """
     while True:
         trait = generate_question(possible_animals, asked_traits)
-        player_answer = input(f"{colorama.Fore.CYAN}Does the animal you're thinking of {trait}? (Yes/No/I don't know)\n>>> ")
+        player_answer = input(f"{colorama.Fore.CYAN}{colorama.Style.NORMAL}Does the animal you're thinking of {trait}? (Yes/No/I don't know)\n>>> ")
         asked_traits.append(trait)
         player_answer = player_answer.lower()
         if player_answer in VALID_ANSWERS:
@@ -193,7 +193,7 @@ def make_guess(possible_animals, question_number):
     ranked_animals = rank_animals(possible_animals, key="probability")
     while True:
         try:
-            final_player_answer = input(f"{colorama.Fore.BLUE}Is the animal you're thinking of {ranked_animals[0]['animal']}? (yes/no)\n>>> ")
+            final_player_answer = input(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}Is the animal you're thinking of {ranked_animals[0]['animal']}? (yes/no)\n>>> ")
             if final_player_answer.lower() == "yes" or final_player_answer.lower() == "y":
                 print(f"{colorama.Fore.GREEN}I knew it.\nGuessed in {question_number} questions.\nThanks for playing!\n")
                 break
@@ -219,7 +219,7 @@ def game(animals_list, key="probability"):
     # Loop through 20 questions
     for i in range(20):
         question_number = i + 1
-        print(f"\n{colorama.Fore.GREEN}QUESTION {question_number}:")
+        print(f"\n{colorama.Fore.GREEN}{colorama.Style.BRIGHT}QUESTION {question_number}:")
         while True:
             player_answer = ask_question(asked_traits, possible_animals)
             if player_answer in [True, False, None]:
@@ -252,7 +252,7 @@ def game_over(game_over_options):
     """
     while True:
         try:
-            game_over_input = input(f"{colorama.Fore.GREEN}{game_over_options}\n>>> ").lower()
+            game_over_input = input(f"{colorama.Fore.GREEN}{colorama.Style.NORMAL}{game_over_options}\n>>> ").lower()
             if game_over_input == "a":
                 input(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
                 game(animals_list)
