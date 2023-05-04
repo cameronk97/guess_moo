@@ -19,8 +19,8 @@ def start_screen(WELCOME_LOGO):
     prompt player to press enter to start
     """
     print(f"{colorama.Fore.GREEN}{WELCOME_LOGO}\n")
-    typewriter(f"{colorama.Fore.CYAN}LET'S SEE IF I CAN GUESS THE FARM ANIMAL YOU'RE THINKING OF\n")
-    input(f"{colorama.Fore.WHITE}PRESS ENTER TO START\n>>> ")
+    typewriter(f"{colorama.Fore.WHITE}LET'S SEE IF I CAN GUESS THE FARM ANIMAL YOU'RE THINKING OF\n")
+    input(f"{colorama.Fore.CYAN}PRESS ENTER TO START\n>>> ")
 
 def display_main_menu(main_menu, game_info):
     #not sure if i need game-info as a parameter here
@@ -61,8 +61,8 @@ def introduction():
     Introduce the game and prompt users to input their name
     Raise and catch ValueError if no characters or non-alphabetic characters are input for username
     """
-    print(f"{colorama.Fore.CYAN}Hi! I'm a farm animal expert.\n")
-    print(f"{colorama.Fore.CYAN}I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
+    print(f"{colorama.Fore.BLUE}Hi! I'm a farm animal expert.\n")
+    print(f"{colorama.Fore.BLUE}I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
     while True:
         try:
             username = input(f"{colorama.Fore.GREEN}What's your name?\n>>> ").capitalize().strip()
@@ -152,7 +152,7 @@ def ask_question(asked_traits, possible_animals):
     """
     while True:
         trait = generate_question(possible_animals, asked_traits)
-        player_answer = input(f"{colorama.Fore.BLUE}Does the animal you're thinking of {trait}? (Yes/No/I don't know)\n>>> ")
+        player_answer = input(f"{colorama.Fore.CYAN}Does the animal you're thinking of {trait}? (Yes/No/I don't know)\n>>> ")
         asked_traits.append(trait)
         player_answer = player_answer.lower()
         if player_answer in VALID_ANSWERS:
@@ -193,7 +193,7 @@ def make_guess(possible_animals, question_number):
     ranked_animals = rank_animals(possible_animals, key="probability")
     while True:
         try:
-            final_player_answer = input(f"Is the animal you're thinking of {ranked_animals[0]['animal']}? (yes/no)\n>>> ")
+            final_player_answer = input(f"{colorama.Fore.BLUE}Is the animal you're thinking of {ranked_animals[0]['animal']}? (yes/no)\n>>> ")
             if final_player_answer.lower() == "yes" or final_player_answer.lower() == "y":
                 print(f"{colorama.Fore.GREEN}I knew it.\nGuessed in {question_number} questions.\nThanks for playing!\n")
                 break
@@ -254,7 +254,7 @@ def game_over(game_over_options):
         try:
             game_over_input = input(f"{colorama.Fore.GREEN}{game_over_options}\n>>> ").lower()
             if game_over_input == "a":
-                input(f"{colorama.Fore.CYAN}Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
+                input(f"{colorama.Fore.BLUE}Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
                 game(animals_list)
             elif game_over_input == "b":
                 display_main_menu(main_menu, game_info)
