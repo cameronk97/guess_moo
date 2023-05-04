@@ -266,7 +266,7 @@ def game(VALID_ANSWERS, animals_list, key="probability"):
     # Loop through 20 questions
     clear()
     for i in range(20):
-        print(BORDER)
+        print("\n" + BORDER)
         question_number = i + 1
         print(f"\n{Fore.GREEN}{Style.BRIGHT}QUESTION {question_number}:")
         while True:
@@ -276,14 +276,17 @@ def game(VALID_ANSWERS, animals_list, key="probability"):
                 break
         # checks
         if any(animal["probability"] > 12 for animal in possible_animals):
+            print("\n" + BORDER)
             make_guess(possible_animals, question_number, VALID_ANSWERS)
             break
         if any(animal["probability"] < -10 for animal in possible_animals):
             possible_animals = [animal for animal in possible_animals
                                 if animal["probability"] >= -10]
         if len(possible_animals) == 1:
+            print("\n" + BORDER)
             make_guess(possible_animals, question_number, VALID_ANSWERS)
     else:
+        print("\n" + BORDER)
         make_guess(possible_animals, question_number, VALID_ANSWERS)
 
 def main(VALID_ANSWERS):
