@@ -204,6 +204,7 @@ def make_guess(possible_animals, question_number):
                 raise ValueError(f'{colorama.Fore.MAGENTA}Invalid input: Please answer "Yes" or "No"\n')
         except ValueError as error:
             print(error)
+    game_over(game_over_options)
 
 def game(animals_list, key="probability"):
     """
@@ -263,6 +264,5 @@ def game_over(game_over_options):
                 raise ValueError(f"{colorama.Fore.MAGENTA}Invalid input: Please enter 'a', 'b' or 'c'\n")
         except ValueError as error:
             print(error)
-    game_over(game_over_options)
 
 main()
