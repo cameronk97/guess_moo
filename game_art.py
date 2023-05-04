@@ -1,10 +1,3 @@
-import colorama
-from colorama import Fore
-
-from extras import typewriter
-
-colorama.init(autoreset=True)
-
 WELCOME_LOGO = """
                     WELCOME TO
   ____ _   _ _____ ____ ____    __  __  ___   ___  
