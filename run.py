@@ -219,7 +219,7 @@ def game(animals_list, key="probability"):
     # Loop through 20 questions
     for i in range(20):
         question_number = i + 1
-        print(f"{colorama.Fore.GREEN}QUESTION {question_number}:")
+        print(f"\n{colorama.Fore.GREEN}QUESTION {question_number}:")
         while True:
             player_answer = ask_question(asked_traits, possible_animals)
             if player_answer in [True, False, None]:
