@@ -11,3 +11,14 @@ def typewriter(string):
     for char in string:
         print(char, end='', flush=True)
         time.sleep(.05)
+
+def clear():
+    """
+    Clears the mock terminal screen
+    The code for this function was found here:
+    https://www.geeksforgeeks.org/clear-screen-python/
+    """
+    if os.name == "nt":
+        _ = os.system('cls')
+    else:
+        _ = os.system('clear')
