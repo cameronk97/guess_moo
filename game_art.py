@@ -7,7 +7,7 @@ WELCOME_LOGO = r"""
  \____|\___/|_____|____/____/  |_|  |_|\___/ \___/ 
 
            THE FARM ANIMAL GUESSING GAME
-""".center(51)
+"""
 
 main_menu = """
 PLEASE SELECT AN OPTION:
@@ -16,7 +16,7 @@ PLEASE SELECT AN OPTION:
      b) PLAY GAME
      c) EXIT
 
-""".center(24)
+"""
 
 game_info = """
     ==================================================================    
@@ -47,4 +47,4 @@ PLEASE SELECT AN OPTION:
      b) GAME INFO
      c) EXIT
 
-""".center(24)
+"""
