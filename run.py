@@ -158,20 +158,22 @@ def ask_question(asked_traits, possible_animals):
     while True:
         trait = generate_question(possible_animals, asked_traits)
         player_answer = input(f"{colorama.Fore.CYAN}{colorama.Style.NORMAL}Does the animal you're thinking of {trait}? (Yes/No/I don't know)\n>>> ")
-        asked_traits.append(trait)
         player_answer = player_answer.lower()
         if player_answer in VALID_ANSWERS:
             # convert player answer to boolean
             if player_answer in VALID_ANSWERS[0:2]:
                 player_answer = True
+                asked_traits.append(trait)
                 update_animal_probability(possible_animals, trait, player_answer)
                 return player_answer
             elif player_answer in VALID_ANSWERS[2:4]:
                 player_answer = False
+                asked_traits.append(trait)
                 update_animal_probability(possible_animals, trait, player_answer)
                 return player_answer
             elif player_answer in VALID_ANSWERS[-3:]:
                 player_answer = None
+                asked_traits.append(trait)
                 return player_answer
         else:
             print(f'{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid input: Please answer "Yes", "No" or "I don\'t know"\n')
