@@ -23,6 +23,7 @@ def start_screen(WELCOME_LOGO):
     print(f"{colorama.Fore.GREEN}{colorama.Style.NORMAL}{WELCOME_LOGO}\n")
     typewriter(f"LET'S SEE IF I CAN GUESS THE FARM ANIMAL YOU'RE THINKING OF\n")
     input(f"{colorama.Fore.CYAN}PRESS ENTER TO START\n>>> ")
+    clear()
 
 def display_main_menu(main_menu, game_info):
     #not sure if i need game-info as a parameter here
@@ -55,8 +56,10 @@ def display_game_info(game_info):
     Print game information
     Direct users back to the main menu
     """
+    clear()
     print(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}{game_info}\n")
     back_to_main = input(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Press enter to go back\n>>> ")
+    clear()
 
 def introduction():
     """
@@ -219,6 +222,7 @@ def game(animals_list, key="probability"):
     for animal in possible_animals:
         animal["probability"] = 1
     # Loop through 20 questions
+    clear()
     for i in range(20):
         question_number = i + 1
         print(f"\n{colorama.Fore.GREEN}{colorama.Style.BRIGHT}QUESTION {question_number}:")
@@ -256,6 +260,7 @@ def game_over(game_over_options):
         try:
             game_over_input = input(f"{colorama.Fore.GREEN}{colorama.Style.NORMAL}{game_over_options}\n>>> ").lower()
             if game_over_input == "a":
+                clear()
                 input(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
                 game(animals_list)
             elif game_over_input == "b":
