@@ -1,3 +1,8 @@
+import colorama
+from colorama import Fore, Style
+
+colorama.init(autoreset=True)
+
 WELCOME_LOGO = r"""
                     WELCOME TO
   ____ _   _ _____ ____ ____    __  __  ___   ___  
@@ -39,8 +44,9 @@ game_info = """
    ||                                                                ||   
     ==================================================================    
 """
-BORDER = ("* * * * * * * * * * * * * * * * * * * * "
-          "* * * * * * * * * * * * * * * * * * * *")
+BORDER = (f"{Fore.MAGENTA}{Style.BRIGHT}\n"
+          f"* * * * * * * * * * * * * * * * * * * * "
+          f"* * * * * * * * * * * * * * * * * * * *\n")
 
 game_over_options = """
 PLEASE SELECT AN OPTION:
