@@ -61,7 +61,7 @@ def introduction():
     Introduce the game and prompt users to input their name
     Raise and catch ValueError if no characters or non-alphabetic characters are input for username
     """
-    typewriter(f"Hi! I'm a farm animal expert.\n")
+    typewriter(f"\nHi! I'm a farm animal expert.\n")
     typewriter(f"I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
     while True:
         try:
