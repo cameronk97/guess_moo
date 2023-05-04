@@ -1,7 +1,7 @@
 import random
 
 import colorama
-from colorama import Fore
+from colorama import Fore, Style
 
 from game_art import *
 from extras import typewriter
@@ -44,7 +44,7 @@ def display_main_menu(main_menu, game_info):
             elif chosen_option == "c":
                 exit_game()
             else:
-                raise ValueError(f"{colorama.Fore.MAGENTA}Invalid input: Please enter 'a', 'b' or 'c'\n")
+                raise ValueError(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid input: Please enter 'a', 'b' or 'c'\n")
         except ValueError as error:
             print(error)
 
@@ -53,8 +53,8 @@ def display_game_info(game_info):
     Print game information
     Direct users back to the main menu
     """
-    print(f"{colorama.Fore.BLUE}{game_info}\n")
-    back_to_main = input(f"{colorama.Fore.MAGENTA}Press enter to go back\n>>> ")
+    print(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}{game_info}\n")
+    back_to_main = input(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Press enter to go back\n>>> ")
 
 def introduction():
     """
@@ -67,9 +67,9 @@ def introduction():
         try:
             username = input(f"{colorama.Fore.GREEN}What's your name?\n>>> ").capitalize().strip()
             if len(username) == 0:
-                raise ValueError(f"{colorama.Fore.MAGENTA}Invalid name: Please enter at least one character.\n")
+                raise ValueError(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid name: Please enter at least one character.\n")
             elif username.isalpha() != True:
-                raise ValueError(f"{colorama.Fore.MAGENTA}Invalid name: Please try again using alphabetic characters.\n")
+                raise ValueError(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid name: Please try again using alphabetic characters.\n")
             else:
                 break
         except ValueError as error:
@@ -77,11 +77,11 @@ def introduction():
 
     while True:
         try:
-            start_game_input = input(f"{colorama.Fore.BLUE}Welcome {username}! Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
+            start_game_input = input(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}Welcome {username}! Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
             if len(start_game_input) == 0:
                 break
             else:
-                raise ValueError(f"{colorama.Fore.MAGENTA}Invalid input: Please try again.\n")
+                raise ValueError(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid input: Please try again.\n")
         except ValueError as error:
             print(error)
 
@@ -89,7 +89,7 @@ def exit_game():
     """
     Exits the program
     """
-    print(f"{colorama.Fore.MAGENTA}Now exiting the game...\n")
+    print(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Now exiting the game...\n")
     print(f"{colorama.Fore.CYAN}Hope to see you again soon!\n")
     sys.exit()
 
@@ -169,7 +169,7 @@ def ask_question(asked_traits, possible_animals):
                 player_answer = None
                 return player_answer
         else:
-            print(f'{colorama.Fore.MAGENTA}Invalid input: Please answer "Yes", "No" or "I don\'t know"\n')
+            print(f'{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid input: Please answer "Yes", "No" or "I don\'t know"\n')
 
 def update_animal_probability(possible_animals, trait, player_answer):
     """
@@ -198,10 +198,10 @@ def make_guess(possible_animals, question_number):
                 print(f"{colorama.Fore.GREEN}I knew it.\nGuessed in {question_number} questions.\nThanks for playing!\n")
                 break
             elif final_player_answer.lower() == "no" or final_player_answer.lower() == "n":
-                print(f"{colorama.Fore.MAGENTA}Sorry, I couldn't guess the farm animal you were thinking of.\nI guess I still have a lot to learn.\n")
+                print(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Sorry, I couldn't guess the farm animal you were thinking of.\nI guess I still have a lot to learn.\n")
                 break
             else:
-                raise ValueError(f'{colorama.Fore.MAGENTA}Invalid input: Please answer "Yes" or "No"\n')
+                raise ValueError(f'{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid input: Please answer "Yes" or "No"\n')
         except ValueError as error:
             print(error)
     game_over(game_over_options)
@@ -254,14 +254,14 @@ def game_over(game_over_options):
         try:
             game_over_input = input(f"{colorama.Fore.GREEN}{game_over_options}\n>>> ").lower()
             if game_over_input == "a":
-                input(f"{colorama.Fore.BLUE}Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
+                input(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
                 game(animals_list)
             elif game_over_input == "b":
                 display_main_menu(main_menu, game_info)
             elif game_over_input == "c":
                 exit_game()
             else:
-                raise ValueError(f"{colorama.Fore.MAGENTA}Invalid input: Please enter 'a', 'b' or 'c'\n")
+                raise ValueError(f"{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid input: Please enter 'a', 'b' or 'c'\n")
         except ValueError as error:
             print(error)
 
