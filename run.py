@@ -211,7 +211,6 @@ def make_guess(possible_animals, question_number):
                 raise ValueError(f'{colorama.Fore.MAGENTA}{colorama.Style.BRIGHT}Invalid input: Please answer "Yes" or "No"\n')
         except ValueError as error:
             print(error)
-    clear()
     game_over(game_over_options)
 
 def game(animals_list, key="probability"):
