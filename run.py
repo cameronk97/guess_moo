@@ -6,7 +6,7 @@ import colorama
 from colorama import Fore, Style
 
 from game_art import *
-from extras import typewriter
+from extras import typewriter, clear
 from animals import animals_list
 
 colorama.init(autoreset=True)
@@ -61,8 +61,8 @@ def display_game_info(game_info):
     """
     clear()
     print(f"{Fore.BLUE}{Style.BRIGHT}{game_info}\n")
-    back_to_main = input(f"{Fore.MAGENTA}{Style.BRIGHT}"
-                         f"Press enter to go back\n>>> ")
+    input(f"{Fore.MAGENTA}{Style.BRIGHT}"
+          f"Press enter to go back\n>>> ")
     clear()
 
 def introduction():
