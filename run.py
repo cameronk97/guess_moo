@@ -267,7 +267,7 @@ def game_over(game_over_options):
                 input(f"{colorama.Fore.BLUE}{colorama.Style.BRIGHT}Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
                 game(animals_list)
             elif game_over_input == "b":
-                display_main_menu(main_menu, game_info)
+                display_game_info(game_info)
             elif game_over_input == "c":
                 exit_game()
             else:

@@ -51,7 +51,7 @@ game_over_options = """
 PLEASE SELECT AN OPTION:
 
      a) PLAY AGAIN
-     b) MAIN MENU
+     b) GAME INFO
      c) EXIT
 
 """.center(24)
