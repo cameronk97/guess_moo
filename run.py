@@ -77,7 +77,7 @@ def introduction():
 
     while True:
         try:
-            start_game_input = input(f"{colorama.Fore.WHITE}Welcome {username}! Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
+            start_game_input = input(f"{colorama.Fore.BLUE}Welcome {username}! Please think of a farm animal.\nPress enter when you're ready for the first question.\n>>> ")
             if len(start_game_input) == 0:
                 break
             else:
