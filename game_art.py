@@ -1,7 +1,7 @@
 import colorama
 from colorama import Fore
 
-from extras import *
+from extras import typewriter
 
 colorama.init(autoreset=True)
 
