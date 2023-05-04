@@ -61,8 +61,8 @@ def introduction():
     Introduce the game and prompt users to input their name
     Raise and catch ValueError if no characters or non-alphabetic characters are input for username
     """
-    print(f"{colorama.Fore.BLUE}Hi! I'm a farm animal expert.\n")
-    print(f"{colorama.Fore.BLUE}I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
+    typewriter(f"Hi! I'm a farm animal expert.\n")
+    typewriter(f"I will try to guess the farm animal you're thinking of in 20 questions or less.\n")
     while True:
         try:
             username = input(f"{colorama.Fore.GREEN}What's your name?\n>>> ").capitalize().strip()
