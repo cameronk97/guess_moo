@@ -15,23 +15,23 @@ VALID_ANSWERS = ["yes", "y", "no", "n", "i don't know", "idk", "i dont know"]
 
 def start_screen(WELCOME_LOGO):
     """
-    Print game logo
-    imported locally from game_art.py
-    and welcome message with typewriter effect
-    prompt player to press enter to start
+    Prints the game logo,
+    which is provided as a parameter.
+    Prints a welcome message with a typewriter effect.
+    Prompts players to press enter to start.
+    Clears the mock terminal screen.
     """
     print(f"{Fore.GREEN}{Style.NORMAL}{WELCOME_LOGO}\n")
     typewriter(f"LET'S SEE IF I CAN GUESS THE FARM ANIMAL YOU'RE THINKING OF\n")
     input(f"{colorama.Fore.CYAN}PRESS ENTER TO START\n>>> ")
     clear()
 
-def display_main_menu(VALID_ANSWERS, main_menu, game_info):
-    #not sure if i need game-info as a parameter here
+def display_main_menu(VALID_ANSWERS, main_menu):
     """
     Display main game menu with 3 options for users:
-        a) Game Information
-        b) Play Game
-        c) Exit the program
+        a) GAME INFO
+        b) PLAY GAME
+        c) EXIT
     Raise and catch ValueError if the user input is not 'a', 'b' or 'c'
     """
     while True:
@@ -58,6 +58,7 @@ def display_game_info(game_info):
     """
     Print game information
     Direct users back to the main menu
+    Clear the mock terminal
     """
     clear()
     print(f"{Fore.BLUE}{Style.BRIGHT}{game_info}\n")
@@ -225,7 +226,6 @@ def make_guess(possible_animals, question_number, VALID_ANSWERS):
     Print whether the animal was guessed correctly or not
     and how many questions were asked
     """
-    # Sort the possible animals by probability
     ranked_animals = rank_animals(possible_animals, key="probability")
     while True:
         try:
@@ -295,14 +295,14 @@ def main(VALID_ANSWERS):
     and main menu
     """
     start_screen(WELCOME_LOGO)
-    display_main_menu(VALID_ANSWERS, main_menu, game_info)
+    display_main_menu(VALID_ANSWERS, main_menu)
 
 def game_over(game_over_options, VALID_ANSWERS):
     """
     When a game ends, give the player 3 choices:
-    * start a new game
-    * display game information
-    * exit the program
+        * PLAY AGAIN
+        * GAME INFO
+        * EXIT
     """
     while True:
         try:
