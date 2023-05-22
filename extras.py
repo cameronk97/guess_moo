@@ -2,6 +2,7 @@ import time
 import sys
 import os
 
+
 def typewriter(string):
     """
     Creates a typewriter effect for output.
@@ -11,6 +12,7 @@ def typewriter(string):
     for char in string:
         print(char, end='', flush=True)
         time.sleep(.05)
+
 
 def clear():
     """
