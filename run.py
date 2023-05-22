@@ -127,9 +127,9 @@ def random_trait(possible_animals, asked_traits):
     for the first animal in the list of possible_animals
     that isn't "animal" or "probability" and hasn't already been asked
     """
-    return random.choice([key for key in possible_animals[0].keys() 
-                        if key != "animal" and key != "probability" 
-                        and key not in asked_traits])
+    return random.choice([key for key in possible_animals[0].keys()
+                         if key != "animal" and key != "probability"
+                         and key not in asked_traits])
 
 
 def rank_animals(possible_animals, key="probability"):
