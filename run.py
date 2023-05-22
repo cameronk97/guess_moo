@@ -161,10 +161,11 @@ def compare_animals(possible_animals, asked, animal1, animal2):
 
 def generate_question(possible_animals, asked):
     """
-    Return a random trait that hasn't already been asked for the first question.
+    Return a random trait for the first question.
     For subsequent questions return a trait based on
-    a difference found in the most probable animals.
-    Otherwise return another random trait to be used in the question.
+    a difference found in the most likely animals.
+    Otherwise return another random trait that
+    hasn't already been asked.
     """
     trait = None
     if len(asked) == 0:
@@ -196,12 +197,14 @@ def ask_question(VALID_ANSWERS, asked, possible_animals):
             if player_answer in VALID_ANSWERS[0:2]:
                 player_answer = True
                 asked.append(trait)
-                update_animal_probability(possible_animals, trait, player_answer)
+                update_animal_probability(possible_animals,
+                                          trait, player_answer)
                 return player_answer
             elif player_answer in VALID_ANSWERS[2:4]:
                 player_answer = False
                 asked.append(trait)
-                update_animal_probability(possible_animals, trait, player_answer)
+                update_animal_probability(possible_animals,
+                                          trait, player_answer)
                 return player_answer
             elif player_answer in VALID_ANSWERS[-3:]:
                 player_answer = None
@@ -209,7 +212,8 @@ def ask_question(VALID_ANSWERS, asked, possible_animals):
                 return player_answer
         else:
             print(f'{Fore.MAGENTA}{Style.BRIGHT}'
-                  f'Invalid input: Please answer "Yes", "No" or "I don\'t know"\n')
+                  f'Invalid input: Please answer'
+                  f'"Yes", "No" or "I don\'t know"\n')
 
 
 def update_animal_probability(possible_animals, trait, player_answer):
