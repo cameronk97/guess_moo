@@ -87,7 +87,7 @@ def introduction():
                 raise ValueError(f"{Fore.MAGENTA}{Style.BRIGHT}"
                                  f"Invalid name: "
                                  f"Please enter at least one character.\n")
-            elif username.isalpha() != True:
+            elif username.isalpha() is not True:
                 raise ValueError(f"{Fore.MAGENTA}{Style.BRIGHT}"
                                  f"Invalid name: Please try again "
                                  f"using alphabetic characters.\n")
