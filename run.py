@@ -166,9 +166,7 @@ def generate_question(possible_animals, asked_traits):
     Otherwise return another random trait to be used in the question.
     """
     trait = None
-    # If this is the first question
     if len(asked_traits) == 0:
-        # choose a random trait that isn't in asked_traits
         trait = random_trait(possible_animals, asked_traits)
         return trait
     elif len(asked_traits) > 0:
@@ -194,7 +192,6 @@ def ask_question(VALID_ANSWERS, asked_traits, possible_animals):
                               f" (Yes/No/I don't know)\n>>> ")
         player_answer = player_answer.lower()
         if player_answer in VALID_ANSWERS:
-            # convert player answer to boolean
             if player_answer in VALID_ANSWERS[0:2]:
                 player_answer = True
                 asked_traits.append(trait)
@@ -266,14 +263,10 @@ def game(VALID_ANSWERS, animals_list, key="probability"):
     """
     Start the game loop
     """
-    # Initialize the list of asked traits
     asked_traits = []
-    # Creates a copy of the animals list
-    # that can be manipulated for the duration of the game
     possible_animals = animals_list.copy()
     for animal in possible_animals:
         animal["probability"] = 1
-    # Loop through 20 questions
     clear()
     for i in range(20):
         print("\n" + BORDER)
@@ -284,7 +277,6 @@ def game(VALID_ANSWERS, animals_list, key="probability"):
                                          asked_traits, possible_animals)
             if player_answer in [True, False, None]:
                 break
-        # checks
         if any(animal["probability"] > 12 for animal in possible_animals):
             print("\n" + BORDER)
             make_guess(possible_animals, question_number, VALID_ANSWERS)
