@@ -22,7 +22,7 @@ def start_screen(WELCOME_LOGO):
     Clears the mock terminal screen.
     """
     print(f"{Fore.GREEN}{Style.NORMAL}{WELCOME_LOGO}\n")
-    typewriter(f"LET'S SEE IF I CAN GUESS THE FARM ANIMAL YOU'RE THINKING OF\n")
+    typewriter(f"LET'S SEE IF I CAN READ YOUR MIND\n")
     input(f"{colorama.Fore.CYAN}PRESS ENTER TO START\n>>> ")
     clear()
 
