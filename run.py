@@ -121,7 +121,7 @@ def exit_game():
     sys.exit()
 
 
-def random_trait(possible_animals, asked_traits):
+def random_trait(possible_animals, asked):
     """
     Return a random trait from the dictionary keys
     for the first animal in the list of possible_animals
@@ -129,7 +129,7 @@ def random_trait(possible_animals, asked_traits):
     """
     return random.choice([key for key in possible_animals[0].keys()
                          if key != "animal" and key != "probability"
-                         and key not in asked_traits])
+                         and key not in asked])
 
 
 def rank_animals(possible_animals, key="probability"):
@@ -137,28 +137,29 @@ def rank_animals(possible_animals, key="probability"):
     Return the list of possible_animals
     sorted by probability from highest to lowest
     """
-    return sorted(possible_animals, key=lambda x: x["probability"], reverse=True)
+    return sorted(possible_animals,
+                  key=lambda x: x["probability"], reverse=True)
 
 
-def compare_animals(possible_animals, asked_traits, animal1, animal2):
+def compare_animals(possible_animals, asked, animal1, animal2):
     """
     Declare a variable named likely_animals
     containing the top 3 most probable animals
     Loop through likely_animals keys for the first animal in likely_animals
     compare values for keys that aren't "animal" or "probability"
-    and aren't in the list of asked_traits
+    and aren't in the list of asked
     until differing boolean values are found for a trait
     Then assign the key found to a variable named trait and return
     """
     likely_animals = rank_animals(possible_animals, "probability")[:3]
     for key in likely_animals[0].keys():
-        if key != "animal" and key != "probability" and key not in asked_traits:
+        if key != "animal" and key != "probability" and key not in asked:
             if likely_animals[animal1][key] != likely_animals[animal2][key]:
                 trait = key
                 return trait
 
 
-def generate_question(possible_animals, asked_traits):
+def generate_question(possible_animals, asked):
     """
     Return a random trait that hasn't already been asked for the first question.
     For subsequent questions return a trait based on
@@ -166,27 +167,27 @@ def generate_question(possible_animals, asked_traits):
     Otherwise return another random trait to be used in the question.
     """
     trait = None
-    if len(asked_traits) == 0:
-        trait = random_trait(possible_animals, asked_traits)
+    if len(asked) == 0:
+        trait = random_trait(possible_animals, asked)
         return trait
-    elif len(asked_traits) > 0:
+    elif len(asked) > 0:
         for animal1, animal2 in [(0, 1), (0, 2), (1, 2)]:
-            trait = compare_animals(possible_animals, asked_traits, animal1, animal2)
+            trait = compare_animals(possible_animals, asked, animal1, animal2)
             if trait:
                 return trait
     if not trait:
-        return random_trait(possible_animals, asked_traits)
+        return random_trait(possible_animals, asked)
 
 
-def ask_question(VALID_ANSWERS, asked_traits, possible_animals):
+def ask_question(VALID_ANSWERS, asked, possible_animals):
     """
     Ask a question using generated trait
-    Add asked traits to the list of asked_traits
+    Add asked traits to the list of asked
     Validate player answers
     Convert player answers to boolean values
     """
     while True:
-        trait = generate_question(possible_animals, asked_traits)
+        trait = generate_question(possible_animals, asked)
         player_answer = input(f"{Fore.CYAN}{Style.NORMAL}"
                               f"Does the animal you're thinking of {trait}?"
                               f" (Yes/No/I don't know)\n>>> ")
@@ -194,17 +195,17 @@ def ask_question(VALID_ANSWERS, asked_traits, possible_animals):
         if player_answer in VALID_ANSWERS:
             if player_answer in VALID_ANSWERS[0:2]:
                 player_answer = True
-                asked_traits.append(trait)
+                asked.append(trait)
                 update_animal_probability(possible_animals, trait, player_answer)
                 return player_answer
             elif player_answer in VALID_ANSWERS[2:4]:
                 player_answer = False
-                asked_traits.append(trait)
+                asked.append(trait)
                 update_animal_probability(possible_animals, trait, player_answer)
                 return player_answer
             elif player_answer in VALID_ANSWERS[-3:]:
                 player_answer = None
-                asked_traits.append(trait)
+                asked.append(trait)
                 return player_answer
         else:
             print(f'{Fore.MAGENTA}{Style.BRIGHT}'
@@ -263,7 +264,7 @@ def game(VALID_ANSWERS, animals_list, key="probability"):
     """
     Start the game loop
     """
-    asked_traits = []
+    asked = []
     possible_animals = animals_list.copy()
     for animal in possible_animals:
         animal["probability"] = 1
@@ -274,7 +275,7 @@ def game(VALID_ANSWERS, animals_list, key="probability"):
         print(f"\n{Fore.GREEN}{Style.BRIGHT}QUESTION {question_number}:")
         while True:
             player_answer = ask_question(VALID_ANSWERS,
-                                         asked_traits, possible_animals)
+                                         asked, possible_animals)
             if player_answer in [True, False, None]:
                 break
         if any(animal["probability"] > 12 for animal in possible_animals):
