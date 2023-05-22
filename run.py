@@ -75,7 +75,6 @@ def introduction():
     typewriter(f"\nHi! I'm a farm animal expert.\n")
     typewriter(f"I will try to guess the farm animal you're"
                f" thinking of in 20 questions or less.\n\n")
-    print(BORDER)
     while True:
         try:
             username = input(f"{Fore.GREEN}{Style.NORMAL}"
@@ -95,7 +94,6 @@ def introduction():
 
     while True:
         try:
-            print(BORDER)
             start_game_input = input(f"{Fore.BLUE}{Style.BRIGHT}\n"
                                      f"Welcome {username}!\n"
                                      f"Please think of a farm animal."
